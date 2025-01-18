@@ -61,37 +61,12 @@ Public Class Customer
 
         If AuthenticateUser(email, password) Then
             MessageBox.Show("Login successful!")
+            SelectDestination.Show()
             Me.Hide()
         Else
             MessageBox.Show("Invalid email or password.")
         End If
     End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub lblORC_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub txtEmailC_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub lblPasswordC_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub lblEmailC_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs)
-
-    End Sub
 End Class

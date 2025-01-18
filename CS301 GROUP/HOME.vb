@@ -15,10 +15,7 @@
         Application.Exit()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Payment_Method.Show()
-        Me.Hide()
-    End Sub
+
 
     Private Sub HOME_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

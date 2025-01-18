@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form3
+Partial Class printreceipt
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -77,7 +77,7 @@ Partial Class Form3
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Thank you "
         '
-        'Form3
+        'printreceipt
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -87,7 +87,7 @@ Partial Class Form3
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form3"
+        Me.Name = "printreceipt"
         Me.Text = "Form3"
         Me.ResumeLayout(False)
         Me.PerformLayout()

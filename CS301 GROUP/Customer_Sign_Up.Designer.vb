@@ -37,7 +37,7 @@ Partial Class Customer_Sign_Up
         Me.BACKToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblEmailCS = New System.Windows.Forms.Label()
-        Me.txtAgeCS = New System.Windows.Forms.TextBox()
+        Me.txtICCS = New System.Windows.Forms.TextBox()
         Me.lblAgeCS = New System.Windows.Forms.Label()
         Me.lblNameCS = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -156,21 +156,21 @@ Partial Class Customer_Sign_Up
         Me.lblEmailCS.TabIndex = 44
         Me.lblEmailCS.Text = "EMAIL:"
         '
-        'txtAgeCS
+        'txtICCS
         '
-        Me.txtAgeCS.Location = New System.Drawing.Point(338, 114)
-        Me.txtAgeCS.Name = "txtAgeCS"
-        Me.txtAgeCS.Size = New System.Drawing.Size(61, 22)
-        Me.txtAgeCS.TabIndex = 43
+        Me.txtICCS.Location = New System.Drawing.Point(338, 114)
+        Me.txtICCS.Name = "txtICCS"
+        Me.txtICCS.Size = New System.Drawing.Size(166, 22)
+        Me.txtICCS.TabIndex = 43
         '
         'lblAgeCS
         '
         Me.lblAgeCS.AutoSize = True
         Me.lblAgeCS.Location = New System.Drawing.Point(108, 118)
         Me.lblAgeCS.Name = "lblAgeCS"
-        Me.lblAgeCS.Size = New System.Drawing.Size(41, 17)
+        Me.lblAgeCS.Size = New System.Drawing.Size(28, 17)
         Me.lblAgeCS.TabIndex = 42
-        Me.lblAgeCS.Text = "AGE:"
+        Me.lblAgeCS.Text = "IC :"
         '
         'lblNameCS
         '
@@ -224,7 +224,7 @@ Partial Class Customer_Sign_Up
         Me.Controls.Add(Me.lblPasswordCS)
         Me.Controls.Add(Me.txtEmailCS)
         Me.Controls.Add(Me.lblEmailCS)
-        Me.Controls.Add(Me.txtAgeCS)
+        Me.Controls.Add(Me.txtICCS)
         Me.Controls.Add(Me.lblAgeCS)
         Me.Controls.Add(Me.lblNameCS)
         Me.Controls.Add(Me.MenuStrip1)
@@ -254,10 +254,10 @@ Partial Class Customer_Sign_Up
     Friend WithEvents BACKToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lblEmailCS As Label
-    Friend WithEvents txtAgeCS As TextBox
     Friend WithEvents lblAgeCS As Label
     Friend WithEvents lblNameCS As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents txtNameCS As TextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents txtICCS As TextBox
 End Class

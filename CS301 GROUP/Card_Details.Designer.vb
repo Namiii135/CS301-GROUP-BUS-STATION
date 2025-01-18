@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form5
+Partial Class Card_Details
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -158,7 +158,7 @@ Partial Class Form5
         Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(113, 26)
         Me.EXITToolStripMenuItem.Text = "EXIT"
         '
-        'Form5
+        'Card_Details
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -174,8 +174,8 @@ Partial Class Form5
         Me.Controls.Add(Me.lblCardNumber)
         Me.Controls.Add(Me.lblCardHolderName)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Name = "Form5"
-        Me.Text = "Form5"
+        Me.Name = "Card_Details"
+        Me.Text = "Card_Details"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

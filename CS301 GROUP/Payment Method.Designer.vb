@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form4
+Partial Class Payment_Method
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -97,7 +97,7 @@ Partial Class Form4
         Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(113, 26)
         Me.EXITToolStripMenuItem.Text = "EXIT"
         '
-        'Form4
+        'Payment_Method
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -106,8 +106,8 @@ Partial Class Form4
         Me.Controls.Add(Me.btnCard)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Name = "Form4"
-        Me.Text = "Form4"
+        Me.Name = "Payment_Method"
+        Me.Text = "Payment_Method"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)

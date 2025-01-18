@@ -68,8 +68,8 @@ Partial Public Class Database_BUS_CSC301DataSet
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
             End If
-            If (Not (ds.Tables("customer order")) Is Nothing) Then
-                MyBase.Tables.Add(New customer_orderDataTable(ds.Tables("customer order")))
+            If (Not (ds.Tables("customer_order")) Is Nothing) Then
+                MyBase.Tables.Add(New customer_orderDataTable(ds.Tables("customer_order")))
             End If
             If (Not (ds.Tables("staff")) Is Nothing) Then
                 MyBase.Tables.Add(New staffDataTable(ds.Tables("staff")))
@@ -204,8 +204,8 @@ Partial Public Class Database_BUS_CSC301DataSet
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
             End If
-            If (Not (ds.Tables("customer order")) Is Nothing) Then
-                MyBase.Tables.Add(New customer_orderDataTable(ds.Tables("customer order")))
+            If (Not (ds.Tables("customer_order")) Is Nothing) Then
+                MyBase.Tables.Add(New customer_orderDataTable(ds.Tables("customer_order")))
             End If
             If (Not (ds.Tables("staff")) Is Nothing) Then
                 MyBase.Tables.Add(New staffDataTable(ds.Tables("staff")))
@@ -254,7 +254,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Me.tablecustomer.InitVars
             End If
         End If
-        Me.tablecustomer_order = CType(MyBase.Tables("customer order"),customer_orderDataTable)
+        Me.tablecustomer_order = CType(MyBase.Tables("customer_order"),customer_orderDataTable)
         If (initTable = true) Then
             If (Not (Me.tablecustomer_order) Is Nothing) Then
                 Me.tablecustomer_order.InitVars
@@ -704,7 +704,7 @@ Partial Public Class Database_BUS_CSC301DataSet
     Partial Public Class customerDataTable
         Inherits Global.System.Data.TypedTableBase(Of customerRow)
         
-        Private columnIC As Global.System.Data.DataColumn
+        Private columnCUST_IC As Global.System.Data.DataColumn
         
         Private columnNAME As Global.System.Data.DataColumn
         
@@ -751,9 +751,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property ICColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CUST_ICColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnIC
+                Return Me.columnCUST_IC
             End Get
         End Property
         
@@ -826,9 +826,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddcustomerRow(ByVal IC As Double, ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As customerRow
+        Public Overloads Function AddcustomerRow(ByVal CUST_IC As Double, ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As customerRow
             Dim rowcustomerRow As customerRow = CType(Me.NewRow,customerRow)
-            Dim columnValuesArray() As Object = New Object() {IC, NAME, PHONENUM, EMAIL, PASSWORD}
+            Dim columnValuesArray() As Object = New Object() {CUST_IC, NAME, PHONENUM, EMAIL, PASSWORD}
             rowcustomerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcustomerRow)
             Return rowcustomerRow
@@ -836,8 +836,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByIC(ByVal IC As Double) As customerRow
-            Return CType(Me.Rows.Find(New Object() {IC}),customerRow)
+        Public Function FindByCUST_IC(ByVal CUST_IC As Double) As customerRow
+            Return CType(Me.Rows.Find(New Object() {CUST_IC}),customerRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -857,7 +857,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnIC = MyBase.Columns("IC")
+            Me.columnCUST_IC = MyBase.Columns("CUST_IC")
             Me.columnNAME = MyBase.Columns("NAME")
             Me.columnPHONENUM = MyBase.Columns("PHONENUM")
             Me.columnEMAIL = MyBase.Columns("EMAIL")
@@ -867,8 +867,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnIC = New Global.System.Data.DataColumn("IC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIC)
+            Me.columnCUST_IC = New Global.System.Data.DataColumn("CUST_IC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCUST_IC)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNAME)
             Me.columnPHONENUM = New Global.System.Data.DataColumn("PHONENUM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -877,9 +877,9 @@ Partial Public Class Database_BUS_CSC301DataSet
             MyBase.Columns.Add(Me.columnEMAIL)
             Me.columnPASSWORD = New Global.System.Data.DataColumn("PASSWORD", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPASSWORD)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIC}, true))
-            Me.columnIC.AllowDBNull = false
-            Me.columnIC.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCUST_IC}, true))
+            Me.columnCUST_IC.AllowDBNull = false
+            Me.columnCUST_IC.Unique = true
             Me.columnNAME.MaxLength = 255
             Me.columnPHONENUM.MaxLength = 255
             Me.columnEMAIL.MaxLength = 255
@@ -1037,7 +1037,7 @@ Partial Public Class Database_BUS_CSC301DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "customer order"
+            Me.TableName = "customer_order"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -1355,7 +1355,7 @@ Partial Public Class Database_BUS_CSC301DataSet
     Partial Public Class staffDataTable
         Inherits Global.System.Data.TypedTableBase(Of staffRow)
         
-        Private columnID As Global.System.Data.DataColumn
+        Private columnSTAFF_ID As Global.System.Data.DataColumn
         
         Private columnIC As Global.System.Data.DataColumn
         
@@ -1402,9 +1402,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property STAFF_IDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnID
+                Return Me.columnSTAFF_ID
             End Get
         End Property
         
@@ -1477,9 +1477,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddstaffRow(ByVal ID As Integer, ByVal IC As Double, ByVal NAME As String, ByVal PHONENUM As String, ByVal POSITION As String) As staffRow
+        Public Overloads Function AddstaffRow(ByVal STAFF_ID As Integer, ByVal IC As Double, ByVal NAME As String, ByVal PHONENUM As String, ByVal POSITION As String) As staffRow
             Dim rowstaffRow As staffRow = CType(Me.NewRow,staffRow)
-            Dim columnValuesArray() As Object = New Object() {ID, IC, NAME, PHONENUM, POSITION}
+            Dim columnValuesArray() As Object = New Object() {STAFF_ID, IC, NAME, PHONENUM, POSITION}
             rowstaffRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowstaffRow)
             Return rowstaffRow
@@ -1487,8 +1487,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As staffRow
-            Return CType(Me.Rows.Find(New Object() {ID}),staffRow)
+        Public Function FindBySTAFF_ID(ByVal STAFF_ID As Integer) As staffRow
+            Return CType(Me.Rows.Find(New Object() {STAFF_ID}),staffRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1508,7 +1508,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
+            Me.columnSTAFF_ID = MyBase.Columns("STAFF_ID")
             Me.columnIC = MyBase.Columns("IC")
             Me.columnNAME = MyBase.Columns("NAME")
             Me.columnPHONENUM = MyBase.Columns("PHONENUM")
@@ -1518,8 +1518,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
+            Me.columnSTAFF_ID = New Global.System.Data.DataColumn("STAFF_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSTAFF_ID)
             Me.columnIC = New Global.System.Data.DataColumn("IC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIC)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1528,9 +1528,9 @@ Partial Public Class Database_BUS_CSC301DataSet
             MyBase.Columns.Add(Me.columnPHONENUM)
             Me.columnPOSITION = New Global.System.Data.DataColumn("POSITION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPOSITION)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
-            Me.columnID.AllowDBNull = false
-            Me.columnID.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnSTAFF_ID}, true))
+            Me.columnSTAFF_ID.AllowDBNull = false
+            Me.columnSTAFF_ID.Unique = true
             Me.columnNAME.MaxLength = 255
             Me.columnPHONENUM.MaxLength = 255
             Me.columnPOSITION.MaxLength = 255
@@ -1815,12 +1815,12 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property IC() As Double
+        Public Property CUST_IC() As Double
             Get
-                Return CType(Me(Me.tablecustomer.ICColumn),Double)
+                Return CType(Me(Me.tablecustomer.CUST_ICColumn),Double)
             End Get
             Set
-                Me(Me.tablecustomer.ICColumn) = value
+                Me(Me.tablecustomer.CUST_ICColumn) = value
             End Set
         End Property
         
@@ -1966,7 +1966,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Try 
                     Return CType(Me(Me.tablecustomer_order.CUST_ICColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'CUST_IC' in table 'customer order' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CUST_IC' in table 'customer_order' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -1981,7 +1981,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Try 
                     Return CType(Me(Me.tablecustomer_order.STAFF_IDColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'STAFF_ID' in table 'customer order' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'STAFF_ID' in table 'customer_order' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -1996,7 +1996,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Try 
                     Return CType(Me(Me.tablecustomer_order.ORDER_IDColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ORDER_ID' in table 'customer order' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ORDER_ID' in table 'customer_order' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -2011,7 +2011,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Try 
                     Return CType(Me(Me.tablecustomer_order.DATEColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DATE' in table 'customer order' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DATE' in table 'customer_order' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -2026,7 +2026,7 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Try 
                     Return CType(Me(Me.tablecustomer_order.TIMEColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME' in table 'customer order' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'TIME' in table 'customer_order' is DBNull.", e)
                 End Try
             End Get
             Set
@@ -2112,12 +2112,12 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property ID() As Integer
+        Public Property STAFF_ID() As Integer
             Get
-                Return CType(Me(Me.tablestaff.IDColumn),Integer)
+                Return CType(Me(Me.tablestaff.STAFF_IDColumn),Integer)
             End Get
             Set
-                Me(Me.tablestaff.IDColumn) = value
+                Me(Me.tablestaff.STAFF_IDColumn) = value
             End Set
         End Property
         
@@ -2940,7 +2940,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "customer"
-            tableMapping.ColumnMappings.Add("IC", "IC")
+            tableMapping.ColumnMappings.Add("IC", "CUST_IC")
             tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("PHONENUM", "PHONENUM")
             tableMapping.ColumnMappings.Add("EMAIL", "EMAIL")
@@ -3239,14 +3239,6 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 End If
             End Try
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String, ByVal Original_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
-            Return Me.Update(Original_IC, NAME, PHONENUM, EMAIL, PASSWORD, Original_IC, Original_NAME, Original_PHONENUM, Original_EMAIL, Original_PASSWORD)
-        End Function
     End Class
     
     '''<summary>
@@ -3375,7 +3367,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "customer order"
+            tableMapping.DataSetTable = "customer_order"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("CUST_IC", "CUST_IC")
             tableMapping.ColumnMappings.Add("STAFF_ID", "STAFF_ID")
@@ -3489,7 +3481,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As Database_BUS_CSC301DataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "customer order")
+            Return Me.Adapter.Update(dataSet, "customer_order")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3816,7 +3808,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "staff"
-            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("ID", "STAFF_ID")
             tableMapping.ColumnMappings.Add("IC", "IC")
             tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("PHONENUM", "PHONENUM")
@@ -4114,14 +4106,6 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal POSITION As String, ByVal Original_ID As Global.System.Nullable(Of Integer), ByVal Original_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_POSITION As String) As Integer
-            Return Me.Update(Original_ID, IC, NAME, PHONENUM, POSITION, Original_ID, Original_IC, Original_NAME, Original_PHONENUM, Original_POSITION)
         End Function
     End Class
     

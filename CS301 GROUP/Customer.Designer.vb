@@ -87,7 +87,7 @@ Partial Class Customer
         '
         'txtEmailC
         '
-        Me.txtEmailC.Location = New System.Drawing.Point(331, 78)
+        Me.txtEmailC.Location = New System.Drawing.Point(331, 93)
         Me.txtEmailC.Name = "txtEmailC"
         Me.txtEmailC.Size = New System.Drawing.Size(253, 22)
         Me.txtEmailC.TabIndex = 22
@@ -104,7 +104,7 @@ Partial Class Customer
         'lblEmailC
         '
         Me.lblEmailC.AutoSize = True
-        Me.lblEmailC.Location = New System.Drawing.Point(196, 78)
+        Me.lblEmailC.Location = New System.Drawing.Point(196, 96)
         Me.lblEmailC.Name = "lblEmailC"
         Me.lblEmailC.Size = New System.Drawing.Size(52, 17)
         Me.lblEmailC.TabIndex = 20

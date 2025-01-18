@@ -371,13 +371,13 @@ Partial Class SelectDestination
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Select Destination"
         '
-        'Form1
+        'SelectDestination
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(827, 588)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Form1"
+        Me.Name = "SelectDestination"
         Me.Text = "Form1"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

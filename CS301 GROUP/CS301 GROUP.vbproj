@@ -73,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card_Details.Designer.vb">
+      <DependentUpon>Card_Details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Card_Details.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Customer_Sign_Up.Designer.vb">
       <DependentUpon>Customer_Sign_Up.vb</DependentUpon>
     </Compile>
@@ -90,34 +96,49 @@
     <Compile Include="Customer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Database_BUS_CSC301DataSet.vb">
+      <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dateform.Designer.vb">
+      <DependentUpon>Dateform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dateform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Details_Driver.Designer.vb">
+      <DependentUpon>Details_Driver.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Details_Driver.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ticketform.Designer.vb">
+      <DependentUpon>ticketform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ticketform.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment Method.Designer.vb">
+      <DependentUpon>Payment Method.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Payment Method.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SelectDestination.Designer.vb">
       <DependentUpon>SelectDestination.vb</DependentUpon>
     </Compile>
     <Compile Include="SelectDestination.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="SelectBusType.Designer.vb">
+      <DependentUpon>SelectBusType.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="SelectBusType.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <Compile Include="printreceipt.Designer.vb">
+      <DependentUpon>printreceipt.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form3.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form4.Designer.vb">
-      <DependentUpon>Form4.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form4.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form5.Designer.vb">
-      <DependentUpon>Form5.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form5.vb">
+    <Compile Include="printreceipt.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff.Designer.vb">
@@ -150,26 +171,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Card_Details.resx">
+      <DependentUpon>Card_Details.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer_Sign_Up.resx">
       <DependentUpon>Customer_Sign_Up.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dateform.resx">
+      <DependentUpon>Dateform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Details_Driver.resx">
+      <DependentUpon>Details_Driver.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ticketform.resx">
+      <DependentUpon>ticketform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment Method.resx">
+      <DependentUpon>Payment Method.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SelectDestination.resx">
       <DependentUpon>SelectDestination.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="SelectBusType.resx">
+      <DependentUpon>SelectBusType.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form5.resx">
-      <DependentUpon>Form5.vb</DependentUpon>
+    <EmbeddedResource Include="printreceipt.resx">
+      <DependentUpon>printreceipt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff.resx">
       <DependentUpon>Staff.vb</DependentUpon>

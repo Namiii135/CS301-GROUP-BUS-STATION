@@ -47,13 +47,13 @@ Partial Class Staff
         'BACKToolStripMenuItem
         '
         Me.BACKToolStripMenuItem.Name = "BACKToolStripMenuItem"
-        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(121, 26)
+        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.BACKToolStripMenuItem.Text = "BACK"
         '
         'EXITToolStripMenuItem
         '
         Me.EXITToolStripMenuItem.Name = "EXITToolStripMenuItem"
-        Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(121, 26)
+        Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.EXITToolStripMenuItem.Text = "EXIT"
         '
         'MenuStrip1
@@ -80,9 +80,9 @@ Partial Class Staff
         Me.lblEmailC.AutoSize = True
         Me.lblEmailC.Location = New System.Drawing.Point(196, 164)
         Me.lblEmailC.Name = "lblEmailC"
-        Me.lblEmailC.Size = New System.Drawing.Size(52, 17)
+        Me.lblEmailC.Size = New System.Drawing.Size(29, 17)
         Me.lblEmailC.TabIndex = 20
-        Me.lblEmailC.Text = "EMAIL:"
+        Me.lblEmailC.Text = "ID :"
         '
         'lblPasswordC
         '

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form2
+Partial Class SelectBusType
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -118,7 +118,7 @@ Partial Class Form2
         Me.btnNext.Text = "Next"
         Me.btnNext.UseVisualStyleBackColor = True
         '
-        'Form2
+        'SelectBusType
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -127,7 +127,7 @@ Partial Class Form2
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.btnNext)
-        Me.Name = "Form2"
+        Me.Name = "SelectBusType"
         Me.Text = "Form2"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
