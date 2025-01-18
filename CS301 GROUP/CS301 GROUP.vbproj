@@ -85,18 +85,15 @@
     <Compile Include="Customer_Sign_Up.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database_BUS_CSC301DataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Customer.Designer.vb">
       <DependentUpon>Customer.vb</DependentUpon>
     </Compile>
     <Compile Include="Customer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database_BUS_CSC301DataSet.vb">
+    <Compile Include="Database_BUS_CSC301DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dateform.Designer.vb">

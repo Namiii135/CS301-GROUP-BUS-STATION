@@ -14,7 +14,7 @@ Public Class Customer
             Dim query As String = "SELECT COUNT(*) FROM [customer] WHERE [EMAIL] = @EMAIL AND [PASSWORD] = @password"
 
             ' Open database connection
-            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301\Database BUS CSC301.accdb;")
+            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;")
                 Using command As New OleDbCommand(query, connection)
                     ' Add parameters to prevent SQL injection
                     command.Parameters.AddWithValue("@EMAIL", email)
@@ -68,5 +68,7 @@ Public Class Customer
         End If
     End Sub
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
+    End Sub
 End Class

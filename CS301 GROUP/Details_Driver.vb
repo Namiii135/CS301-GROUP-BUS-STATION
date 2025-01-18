@@ -3,11 +3,11 @@
 Public Class Details_Driver
     ' Subroutine to load passengers for the given driver ID
     Private Sub LoadPassengers(driverID As String)
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301\Database BUS CSC301.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;"
         Dim query As String = "SELECT c.[NAME], c.[PHONENUM]
                                FROM ([customer] AS c
                                INNER JOIN [customer_order] AS co ON c.[CUST_IC] = co.[CUST_IC])
-                               INNER JOIN [staff] AS s ON co.[STAFF_ID] = s.[STAFF_ID]
+                               INNER JOIN [Bus_Driver] AS s ON co.[STAFF_ID] = s.[STAFF_ID]
                                WHERE s.[STAFF_ID] = @DriverID;"
 
         ' Clear the ListBox before loading new data
@@ -59,5 +59,9 @@ Public Class Details_Driver
     Private Sub button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Hide()
         Staff.Show()
+    End Sub
+
+    Private Sub ListBoxPassengers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxPassengers.SelectedIndexChanged
+
     End Sub
 End Class

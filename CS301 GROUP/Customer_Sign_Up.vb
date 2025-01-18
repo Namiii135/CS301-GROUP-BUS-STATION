@@ -8,7 +8,7 @@ Public Class Customer_Sign_Up
 
 
         ' Connection string to the database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301\Database BUS CSC301.accdb;"
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;"
         Dim query As String = "INSERT INTO customer ([Name], [PHONENUM], [IC], [EMAIL], [PASSWORD]) 
         VALUES (@Name, @PhoneNumber, @ICNumber, @Email, @Password);"
 
