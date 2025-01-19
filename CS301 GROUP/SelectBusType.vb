@@ -1,6 +1,7 @@
 ﻿Public Class SelectBusType
     Public busSeatType As String
     Public busType As String
+    Public Property SelectedOption As String
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
         busSeatType = "Double Decker"
@@ -12,7 +13,7 @@
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         Me.Hide()
-        DateForm.Show()
+        ticketform.Show()
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click

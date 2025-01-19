@@ -1,80 +1,71 @@
-﻿Public Class Card_Details
-    Private Sub txtCardHolderName_TextChanged(sender As Object, e As EventArgs) Handles txtCardHolderName.TextChanged
+﻿Imports System.Data.OleDb
 
-    End Sub
+Public Class Card_Details
 
-    Private Sub txtCardNumber_TextChanged(sender As Object, e As EventArgs) Handles txtCardNumber.TextChanged
-        If txtCardNumber.Text.Length > 16 Then
-            MessageBox.Show("Card number cannot be more than 16 digits.")
-            txtCardNumber.Text = txtCardNumber.Text.Substring(0, 16)
-        End If
-    End Sub
+    ' Authenticate the user's card details based on email
+    Private Function AuthenticateUser(card_number As String, expiry_date As String, cvv_cvc As String) As Boolean
+        Dim email As String = Customer.LoggedInCustomeremail
 
-    Private Sub txtExpDate_TextChanged(sender As Object, e As EventArgs) Handles txtExpDate.TextChanged
-        If txtExpDate.Text.Length > 5 Then
-            MessageBox.Show("Expiration date must follow MM/YY format.")
-            txtExpDate.Text = txtExpDate.Text.Substring(0, 5) ' Limit input to MM/YY
-        End If
-    End Sub
+        Try
+            ' Trim any extra spaces from inputs
+            card_number = card_number.Trim()
+            expiry_date = expiry_date.Trim()
+            cvv_cvc = cvv_cvc.Trim()
 
-    Private Sub txtCode_TextChanged(sender As Object, e As EventArgs) Handles txtCode.TextChanged
-        If txtCode.Text.Length > 3 Then
-            MessageBox.Show("Security code must be 3 digits.")
-            txtCode.Text = txtCode.Text.Substring(0, 3)
-        End If
-    End Sub
+            ' Correct SQL query to check all card details for the logged-in customer
+            Dim query As String = "SELECT COUNT(*) 
+                                    FROM [CARD_DETAILS] AS c
+                                    INNER JOIN [customer] AS co ON c.[EMAIL] = co.[EMAIL]
+                                    WHERE co.[EMAIL] = @EMAIL 
+                                    AND c.[card_number] = @cardnum
+                                    AND c.[expiry_date] = @expiredate
+                                    AND c.[cvv_cvc] = @CVV;"
 
-    Private Sub btnClearP_Click(sender As Object, e As EventArgs) Handles btnClearP.Click
-        txtCardHolderName.Clear()
-        txtCardNumber.Clear()
-        txtExpDate.Clear()
-        txtCode.Clear()
-    End Sub
+            ' Database connection
+            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301 (1)\DATABASE BUS STATION  CSC 301.accdb")
+                Using command As New OleDbCommand(query, connection)
+                    ' Add parameters to prevent SQL injection
+                    command.Parameters.AddWithValue("@EMAIL", email)
+                    command.Parameters.AddWithValue("@cardnum", card_number)
+                    command.Parameters.AddWithValue("@expiredate", expiry_date)
+                    command.Parameters.AddWithValue("@CVV", cvv_cvc)
 
-    Private Sub btnNextP_Click(sender As Object, e As EventArgs) Handles btnNextP.Click
-        If ValidateCardDetails() Then
-            MessageBox.Show("Payment details are valid. Proceeding with payment.")
-            ' You can proceed to the next step, e.g., confirmation screen or payment processing
-        End If
-        Me.Hide()
-        printreceipt.Show()
-    End Sub
+                    ' Open the database connection
+                    connection.Open()
 
-    ' Function to validate all card details
-    Private Function ValidateCardDetails() As Boolean
-        ' Ensure all fields are filled
-        If String.IsNullOrEmpty(txtCardHolderName.Text) Then
-            MessageBox.Show("Card holder name is required.")
+                    ' Execute the query and get the result
+                    Dim result As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                    ' If the result is greater than 0, it means matching card details were found
+                    Return result > 0
+                End Using
+            End Using
+        Catch ex As Exception
+            ' Show detailed error message for debugging
+            MessageBox.Show("Error: " & ex.Message)
             Return False
-        End If
-
-        If String.IsNullOrEmpty(txtCardNumber.Text) OrElse txtCardNumber.Text.Length <> 16 Then
-            MessageBox.Show("Please enter a valid 16-digit card number.")
-            Return False
-        End If
-
-        If String.IsNullOrEmpty(txtExpDate.Text) OrElse txtExpDate.Text.Length <> 5 Then
-            MessageBox.Show("Please enter a valid expiration date in MM/YY format.")
-            Return False
-        End If
-
-        If String.IsNullOrEmpty(txtCode.Text) OrElse txtCode.Text.Length <> 3 Then
-            MessageBox.Show("Please enter a valid 3-digit security code.")
-            Return False
-        End If
-
-        Return True
+        End Try
     End Function
 
-    Private Sub BACKToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BACKToolStripMenuItem.Click
+    ' Event handler for the Next button click
+    Private Sub btnNextP_Click(sender As Object, e As EventArgs) Handles btnNextP.Click
+        ' Fetch input values from textboxes
+        Dim card_number As String = txtCardNumber.Text
+        Dim expiry_date As String = expired_date.Text
+        Dim cvv_cvc As String = txtCvvCvc.Text
 
+        ' Authenticate user
+        If AuthenticateUser(card_number, expiry_date, cvv_cvc) Then
+            MessageBox.Show("Card details verified successfully!")
+            Me.Hide()  ' Hide the current form or proceed to next form
+        Else
+            MessageBox.Show("Invalid card details. Please check and try again.")
+        End If
     End Sub
 
-    Private Sub EXITToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EXITToolStripMenuItem.Click
-        Application.Exit()
-    End Sub
-
+    ' Event handler for form load (if needed)
     Private Sub Card_Details_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        ' Initialization code if needed
     End Sub
+
 End Class

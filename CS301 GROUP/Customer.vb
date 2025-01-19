@@ -2,6 +2,7 @@
 
 Public Class Customer
 
+    Public Shared LoggedInCustomeremail As String
 
 
     Private Function AuthenticateUser(email As String, password As String) As Boolean
@@ -14,7 +15,7 @@ Public Class Customer
             Dim query As String = "SELECT COUNT(*) FROM [customer] WHERE [EMAIL] = @EMAIL AND [PASSWORD] = @password"
 
             ' Open database connection
-            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;")
+            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301 (1)\DATABASE BUS STATION  CSC 301.accdb")
                 Using command As New OleDbCommand(query, connection)
                     ' Add parameters to prevent SQL injection
                     command.Parameters.AddWithValue("@EMAIL", email)
@@ -24,6 +25,11 @@ Public Class Customer
 
                     ' Execute the query
                     Dim result As Integer = Convert.ToInt32(command.ExecuteScalar())
+
+                    ' If successful, store the logged-in user's email
+                    If result > 0 Then
+                        LoggedInCustomeremail = email ' Save the user's email
+                    End If
 
                     ' Return true if a match is found
                     Return result > 0

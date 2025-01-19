@@ -10,9 +10,9 @@ Public Class Staff
             email = email.Trim()
             password = password.Trim()
 
-            Dim query As String = "SELECT COUNT(*) FROM [Bus_Driver] WHERE [STAFF_ID] = @ID AND [STAFF_IC] = @password"
+            Dim query As String = "SELECT COUNT(*) FROM [Bus_Driver] WHERE [STAFF_ID] = @ID AND [PASSWORD] = @password"
 
-            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;")
+            Using connection As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301 (1)\DATABASE BUS STATION  CSC 301.accdb")
                 Using command As New OleDbCommand(query, connection)
                     command.Parameters.AddWithValue("@ID", email)
                     command.Parameters.AddWithValue("@password", password)

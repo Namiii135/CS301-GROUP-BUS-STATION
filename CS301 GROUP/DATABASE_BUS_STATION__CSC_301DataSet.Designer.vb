@@ -20,12 +20,14 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("Database_BUS_CSC301DataSet"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("DATABASE_BUS_STATION__CSC_301DataSet"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class Database_BUS_CSC301DataSet
+Partial Public Class DATABASE_BUS_STATION__CSC_301DataSet
     Inherits Global.System.Data.DataSet
     
     Private tableBus_Driver As Bus_DriverDataTable
+    
+    Private tableCARD_DETAILS As CARD_DETAILSDataTable
     
     Private tablecustomer As customerDataTable
     
@@ -63,6 +65,9 @@ Partial Public Class Database_BUS_CSC301DataSet
             If (Not (ds.Tables("Bus_Driver")) Is Nothing) Then
                 MyBase.Tables.Add(New Bus_DriverDataTable(ds.Tables("Bus_Driver")))
             End If
+            If (Not (ds.Tables("CARD_DETAILS")) Is Nothing) Then
+                MyBase.Tables.Add(New CARD_DETAILSDataTable(ds.Tables("CARD_DETAILS")))
+            End If
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
             End If
@@ -93,6 +98,16 @@ Partial Public Class Database_BUS_CSC301DataSet
     Public ReadOnly Property Bus_Driver() As Bus_DriverDataTable
         Get
             Return Me.tableBus_Driver
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property CARD_DETAILS() As CARD_DETAILSDataTable
+        Get
+            Return Me.tableCARD_DETAILS
         End Get
     End Property
     
@@ -158,7 +173,7 @@ Partial Public Class Database_BUS_CSC301DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As Database_BUS_CSC301DataSet = CType(MyBase.Clone,Database_BUS_CSC301DataSet)
+        Dim cln As DATABASE_BUS_STATION__CSC_301DataSet = CType(MyBase.Clone,DATABASE_BUS_STATION__CSC_301DataSet)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -185,6 +200,9 @@ Partial Public Class Database_BUS_CSC301DataSet
             ds.ReadXml(reader)
             If (Not (ds.Tables("Bus_Driver")) Is Nothing) Then
                 MyBase.Tables.Add(New Bus_DriverDataTable(ds.Tables("Bus_Driver")))
+            End If
+            If (Not (ds.Tables("CARD_DETAILS")) Is Nothing) Then
+                MyBase.Tables.Add(New CARD_DETAILSDataTable(ds.Tables("CARD_DETAILS")))
             End If
             If (Not (ds.Tables("customer")) Is Nothing) Then
                 MyBase.Tables.Add(New customerDataTable(ds.Tables("customer")))
@@ -230,6 +248,12 @@ Partial Public Class Database_BUS_CSC301DataSet
                 Me.tableBus_Driver.InitVars
             End If
         End If
+        Me.tableCARD_DETAILS = CType(MyBase.Tables("CARD_DETAILS"),CARD_DETAILSDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableCARD_DETAILS) Is Nothing) Then
+                Me.tableCARD_DETAILS.InitVars
+            End If
+        End If
         Me.tablecustomer = CType(MyBase.Tables("customer"),customerDataTable)
         If (initTable = true) Then
             If (Not (Me.tablecustomer) Is Nothing) Then
@@ -247,13 +271,15 @@ Partial Public Class Database_BUS_CSC301DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "Database_BUS_CSC301DataSet"
+        Me.DataSetName = "DATABASE_BUS_STATION__CSC_301DataSet"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/Database_BUS_CSC301DataSet.xsd"
+        Me.Namespace = "http://tempuri.org/DATABASE_BUS_STATION__CSC_301DataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableBus_Driver = New Bus_DriverDataTable()
         MyBase.Tables.Add(Me.tableBus_Driver)
+        Me.tableCARD_DETAILS = New CARD_DETAILSDataTable()
+        MyBase.Tables.Add(Me.tableCARD_DETAILS)
         Me.tablecustomer = New customerDataTable()
         MyBase.Tables.Add(Me.tablecustomer)
         Me.tablecustomer_order = New customer_orderDataTable()
@@ -263,6 +289,12 @@ Partial Public Class Database_BUS_CSC301DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Private Function ShouldSerializeBus_Driver() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Private Function ShouldSerializeCARD_DETAILS() As Boolean
         Return false
     End Function
     
@@ -289,7 +321,7 @@ Partial Public Class Database_BUS_CSC301DataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As Database_BUS_CSC301DataSet = New Database_BUS_CSC301DataSet()
+        Dim ds As DATABASE_BUS_STATION__CSC_301DataSet = New DATABASE_BUS_STATION__CSC_301DataSet()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -340,6 +372,9 @@ Partial Public Class Database_BUS_CSC301DataSet
     Public Delegate Sub Bus_DriverRowChangeEventHandler(ByVal sender As Object, ByVal e As Bus_DriverRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Delegate Sub CARD_DETAILSRowChangeEventHandler(ByVal sender As Object, ByVal e As CARD_DETAILSRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Delegate Sub customerRowChangeEventHandler(ByVal sender As Object, ByVal e As customerRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
@@ -355,7 +390,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         Private columnSTAFF_ID As Global.System.Data.DataColumn
         
-        Private columnSTAFF_IC As Global.System.Data.DataColumn
+        Private columnPASSWORD As Global.System.Data.DataColumn
         
         Private columnNAME As Global.System.Data.DataColumn
         
@@ -406,9 +441,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property STAFF_ICColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PASSWORDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnSTAFF_IC
+                Return Me.columnPASSWORD
             End Get
         End Property
         
@@ -465,9 +500,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddBus_DriverRow(ByVal STAFF_ID As Integer, ByVal STAFF_IC As Double, ByVal NAME As String, ByVal PHONENUM As String) As Bus_DriverRow
+        Public Overloads Function AddBus_DriverRow(ByVal STAFF_ID As Integer, ByVal PASSWORD As Double, ByVal NAME As String, ByVal PHONENUM As String) As Bus_DriverRow
             Dim rowBus_DriverRow As Bus_DriverRow = CType(Me.NewRow,Bus_DriverRow)
-            Dim columnValuesArray() As Object = New Object() {STAFF_ID, STAFF_IC, NAME, PHONENUM}
+            Dim columnValuesArray() As Object = New Object() {STAFF_ID, PASSWORD, NAME, PHONENUM}
             rowBus_DriverRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowBus_DriverRow)
             Return rowBus_DriverRow
@@ -497,7 +532,7 @@ Partial Public Class Database_BUS_CSC301DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnSTAFF_ID = MyBase.Columns("STAFF_ID")
-            Me.columnSTAFF_IC = MyBase.Columns("STAFF_IC")
+            Me.columnPASSWORD = MyBase.Columns("PASSWORD")
             Me.columnNAME = MyBase.Columns("NAME")
             Me.columnPHONENUM = MyBase.Columns("PHONENUM")
         End Sub
@@ -507,8 +542,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         Private Sub InitClass()
             Me.columnSTAFF_ID = New Global.System.Data.DataColumn("STAFF_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSTAFF_ID)
-            Me.columnSTAFF_IC = New Global.System.Data.DataColumn("STAFF_IC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSTAFF_IC)
+            Me.columnPASSWORD = New Global.System.Data.DataColumn("PASSWORD", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPASSWORD)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNAME)
             Me.columnPHONENUM = New Global.System.Data.DataColumn("PHONENUM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -585,7 +620,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Database_BUS_CSC301DataSet = New Database_BUS_CSC301DataSet()
+            Dim ds As DATABASE_BUS_STATION__CSC_301DataSet = New DATABASE_BUS_STATION__CSC_301DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -652,12 +687,345 @@ Partial Public Class Database_BUS_CSC301DataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class CARD_DETAILSDataTable
+        Inherits Global.System.Data.TypedTableBase(Of CARD_DETAILSRow)
+        
+        Private columnID As Global.System.Data.DataColumn
+        
+        Private columnEMAIL As Global.System.Data.DataColumn
+        
+        Private columnCUST_NAME As Global.System.Data.DataColumn
+        
+        Private columncard_number As Global.System.Data.DataColumn
+        
+        Private columnexpiry_date As Global.System.Data.DataColumn
+        
+        Private columncvv_cvc As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "CARD_DETAILS"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property EMAILColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEMAIL
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property CUST_NAMEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCUST_NAME
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property card_numberColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncard_number
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property expiry_dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnexpiry_date
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property cvv_cvcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncvv_cvc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As CARD_DETAILSRow
+            Get
+                Return CType(Me.Rows(index),CARD_DETAILSRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event CARD_DETAILSRowChanging As CARD_DETAILSRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event CARD_DETAILSRowChanged As CARD_DETAILSRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event CARD_DETAILSRowDeleting As CARD_DETAILSRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Event CARD_DETAILSRowDeleted As CARD_DETAILSRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Sub AddCARD_DETAILSRow(ByVal row As CARD_DETAILSRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overloads Function AddCARD_DETAILSRow(ByVal EMAIL As String, ByVal CUST_NAME As String, ByVal card_number As String, ByVal expiry_date As String, ByVal cvv_cvc As Integer) As CARD_DETAILSRow
+            Dim rowCARD_DETAILSRow As CARD_DETAILSRow = CType(Me.NewRow,CARD_DETAILSRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, EMAIL, CUST_NAME, card_number, expiry_date, cvv_cvc}
+            rowCARD_DETAILSRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowCARD_DETAILSRow)
+            Return rowCARD_DETAILSRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByID(ByVal ID As Integer) As CARD_DETAILSRow
+            Return CType(Me.Rows.Find(New Object() {ID}),CARD_DETAILSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As CARD_DETAILSDataTable = CType(MyBase.Clone,CARD_DETAILSDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New CARD_DETAILSDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnID = MyBase.Columns("ID")
+            Me.columnEMAIL = MyBase.Columns("EMAIL")
+            Me.columnCUST_NAME = MyBase.Columns("CUST_NAME")
+            Me.columncard_number = MyBase.Columns("card_number")
+            Me.columnexpiry_date = MyBase.Columns("expiry_date")
+            Me.columncvv_cvc = MyBase.Columns("cvv_cvc")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnEMAIL = New Global.System.Data.DataColumn("EMAIL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEMAIL)
+            Me.columnCUST_NAME = New Global.System.Data.DataColumn("CUST_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCUST_NAME)
+            Me.columncard_number = New Global.System.Data.DataColumn("card_number", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncard_number)
+            Me.columnexpiry_date = New Global.System.Data.DataColumn("expiry_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnexpiry_date)
+            Me.columncvv_cvc = New Global.System.Data.DataColumn("cvv_cvc", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncvv_cvc)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
+            Me.columnID.AllowDBNull = false
+            Me.columnID.Unique = true
+            Me.columnEMAIL.MaxLength = 50
+            Me.columnCUST_NAME.MaxLength = 255
+            Me.columncard_number.MaxLength = 536870910
+            Me.columnexpiry_date.MaxLength = 536870910
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function NewCARD_DETAILSRow() As CARD_DETAILSRow
+            Return CType(Me.NewRow,CARD_DETAILSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New CARD_DETAILSRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(CARD_DETAILSRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.CARD_DETAILSRowChangedEvent) Is Nothing) Then
+                RaiseEvent CARD_DETAILSRowChanged(Me, New CARD_DETAILSRowChangeEvent(CType(e.Row,CARD_DETAILSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.CARD_DETAILSRowChangingEvent) Is Nothing) Then
+                RaiseEvent CARD_DETAILSRowChanging(Me, New CARD_DETAILSRowChangeEvent(CType(e.Row,CARD_DETAILSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.CARD_DETAILSRowDeletedEvent) Is Nothing) Then
+                RaiseEvent CARD_DETAILSRowDeleted(Me, New CARD_DETAILSRowChangeEvent(CType(e.Row,CARD_DETAILSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.CARD_DETAILSRowDeletingEvent) Is Nothing) Then
+                RaiseEvent CARD_DETAILSRowDeleting(Me, New CARD_DETAILSRowChangeEvent(CType(e.Row,CARD_DETAILSRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub RemoveCARD_DETAILSRow(ByVal row As CARD_DETAILSRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DATABASE_BUS_STATION__CSC_301DataSet = New DATABASE_BUS_STATION__CSC_301DataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "CARD_DETAILSDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class customerDataTable
         Inherits Global.System.Data.TypedTableBase(Of customerRow)
         
         Private columnCUST_IC As Global.System.Data.DataColumn
         
-        Private columnNAME As Global.System.Data.DataColumn
+        Private columnCUST_NAME As Global.System.Data.DataColumn
         
         Private columnPHONENUM As Global.System.Data.DataColumn
         
@@ -710,9 +1078,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CUST_NAMEColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNAME
+                Return Me.columnCUST_NAME
             End Get
         End Property
         
@@ -777,9 +1145,9 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddcustomerRow(ByVal CUST_IC As Double, ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As customerRow
+        Public Overloads Function AddcustomerRow(ByVal CUST_IC As Double, ByVal CUST_NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As customerRow
             Dim rowcustomerRow As customerRow = CType(Me.NewRow,customerRow)
-            Dim columnValuesArray() As Object = New Object() {CUST_IC, NAME, PHONENUM, EMAIL, PASSWORD}
+            Dim columnValuesArray() As Object = New Object() {CUST_IC, CUST_NAME, PHONENUM, EMAIL, PASSWORD}
             rowcustomerRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowcustomerRow)
             Return rowcustomerRow
@@ -809,7 +1177,7 @@ Partial Public Class Database_BUS_CSC301DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnCUST_IC = MyBase.Columns("CUST_IC")
-            Me.columnNAME = MyBase.Columns("NAME")
+            Me.columnCUST_NAME = MyBase.Columns("CUST_NAME")
             Me.columnPHONENUM = MyBase.Columns("PHONENUM")
             Me.columnEMAIL = MyBase.Columns("EMAIL")
             Me.columnPASSWORD = MyBase.Columns("PASSWORD")
@@ -820,8 +1188,8 @@ Partial Public Class Database_BUS_CSC301DataSet
         Private Sub InitClass()
             Me.columnCUST_IC = New Global.System.Data.DataColumn("CUST_IC", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCUST_IC)
-            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNAME)
+            Me.columnCUST_NAME = New Global.System.Data.DataColumn("CUST_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCUST_NAME)
             Me.columnPHONENUM = New Global.System.Data.DataColumn("PHONENUM", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPHONENUM)
             Me.columnEMAIL = New Global.System.Data.DataColumn("EMAIL", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -831,7 +1199,7 @@ Partial Public Class Database_BUS_CSC301DataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCUST_IC}, true))
             Me.columnCUST_IC.AllowDBNull = false
             Me.columnCUST_IC.Unique = true
-            Me.columnNAME.MaxLength = 255
+            Me.columnCUST_NAME.MaxLength = 255
             Me.columnPHONENUM.MaxLength = 255
             Me.columnEMAIL.MaxLength = 255
             Me.columnPASSWORD.MaxLength = 255
@@ -902,7 +1270,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Database_BUS_CSC301DataSet = New Database_BUS_CSC301DataSet()
+            Dim ds As DATABASE_BUS_STATION__CSC_301DataSet = New DATABASE_BUS_STATION__CSC_301DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1236,7 +1604,7 @@ Partial Public Class Database_BUS_CSC301DataSet
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As Database_BUS_CSC301DataSet = New Database_BUS_CSC301DataSet()
+            Dim ds As DATABASE_BUS_STATION__CSC_301DataSet = New DATABASE_BUS_STATION__CSC_301DataSet()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -1326,16 +1694,16 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property STAFF_IC() As Double
+        Public Property PASSWORD() As Double
             Get
                 Try 
-                    Return CType(Me(Me.tableBus_Driver.STAFF_ICColumn),Double)
+                    Return CType(Me(Me.tableBus_Driver.PASSWORDColumn),Double)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'STAFF_IC' in table 'Bus_Driver' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'PASSWORD' in table 'Bus_Driver' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableBus_Driver.STAFF_ICColumn) = value
+                Me(Me.tableBus_Driver.PASSWORDColumn) = value
             End Set
         End Property
         
@@ -1371,14 +1739,14 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsSTAFF_ICNull() As Boolean
-            Return Me.IsNull(Me.tableBus_Driver.STAFF_ICColumn)
+        Public Function IsPASSWORDNull() As Boolean
+            Return Me.IsNull(Me.tableBus_Driver.PASSWORDColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetSTAFF_ICNull()
-            Me(Me.tableBus_Driver.STAFF_ICColumn) = Global.System.Convert.DBNull
+        Public Sub SetPASSWORDNull()
+            Me(Me.tableBus_Driver.PASSWORDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1403,6 +1771,168 @@ Partial Public Class Database_BUS_CSC301DataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetPHONENUMNull()
             Me(Me.tableBus_Driver.PHONENUMColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class CARD_DETAILSRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableCARD_DETAILS As CARD_DETAILSDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableCARD_DETAILS = CType(Me.Table,CARD_DETAILSDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableCARD_DETAILS.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property EMAIL() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCARD_DETAILS.EMAILColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'EMAIL' in table 'CARD_DETAILS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.EMAILColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property CUST_NAME() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCARD_DETAILS.CUST_NAMEColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CUST_NAME' in table 'CARD_DETAILS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.CUST_NAMEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property card_number() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCARD_DETAILS.card_numberColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'card_number' in table 'CARD_DETAILS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.card_numberColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property expiry_date() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableCARD_DETAILS.expiry_dateColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'expiry_date' in table 'CARD_DETAILS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.expiry_dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property cvv_cvc() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableCARD_DETAILS.cvv_cvcColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cvv_cvc' in table 'CARD_DETAILS' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableCARD_DETAILS.cvv_cvcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsEMAILNull() As Boolean
+            Return Me.IsNull(Me.tableCARD_DETAILS.EMAILColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetEMAILNull()
+            Me(Me.tableCARD_DETAILS.EMAILColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsCUST_NAMENull() As Boolean
+            Return Me.IsNull(Me.tableCARD_DETAILS.CUST_NAMEColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetCUST_NAMENull()
+            Me(Me.tableCARD_DETAILS.CUST_NAMEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Iscard_numberNull() As Boolean
+            Return Me.IsNull(Me.tableCARD_DETAILS.card_numberColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setcard_numberNull()
+            Me(Me.tableCARD_DETAILS.card_numberColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Isexpiry_dateNull() As Boolean
+            Return Me.IsNull(Me.tableCARD_DETAILS.expiry_dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setexpiry_dateNull()
+            Me(Me.tableCARD_DETAILS.expiry_dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function Iscvv_cvcNull() As Boolean
+            Return Me.IsNull(Me.tableCARD_DETAILS.cvv_cvcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub Setcvv_cvcNull()
+            Me(Me.tableCARD_DETAILS.cvv_cvcColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1434,16 +1964,16 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property NAME() As String
+        Public Property CUST_NAME() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablecustomer.NAMEColumn),String)
+                    Return CType(Me(Me.tablecustomer.CUST_NAMEColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NAME' in table 'customer' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CUST_NAME' in table 'customer' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablecustomer.NAMEColumn) = value
+                Me(Me.tablecustomer.CUST_NAMEColumn) = value
             End Set
         End Property
         
@@ -1494,14 +2024,14 @@ Partial Public Class Database_BUS_CSC301DataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Function IsNAMENull() As Boolean
-            Return Me.IsNull(Me.tablecustomer.NAMEColumn)
+        Public Function IsCUST_NAMENull() As Boolean
+            Return Me.IsNull(Me.tablecustomer.CUST_NAMEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Sub SetNAMENull()
-            Me(Me.tablecustomer.NAMEColumn) = Global.System.Convert.DBNull
+        Public Sub SetCUST_NAMENull()
+            Me(Me.tablecustomer.CUST_NAMEColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1743,6 +2273,42 @@ Partial Public Class Database_BUS_CSC301DataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+    Public Class CARD_DETAILSRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As CARD_DETAILSRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New(ByVal row As CARD_DETAILSRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Row() As CARD_DETAILSRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
     Public Class customerRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -1812,7 +2378,7 @@ Partial Public Class Database_BUS_CSC301DataSet
     End Class
 End Class
 
-Namespace Database_BUS_CSC301DataSetTableAdapters
+Namespace DATABASE_BUS_STATION__CSC_301DataSetTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1942,46 +2508,46 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Bus_Driver"
             tableMapping.ColumnMappings.Add("STAFF_ID", "STAFF_ID")
-            tableMapping.ColumnMappings.Add("STAFF_IC", "STAFF_IC")
+            tableMapping.ColumnMappings.Add("PASSWORD", "PASSWORD")
             tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("PHONENUM", "PHONENUM")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Bus_Driver` WHERE ((`STAFF_ID` = ?) AND ((? = 1 AND `STAFF_IC` IS NU"& _ 
-                "LL) OR (`STAFF_IC` = ?)) AND ((? = 1 AND `NAME` IS NULL) OR (`NAME` = ?)) AND (("& _ 
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Bus_Driver` WHERE ((`STAFF_ID` = ?) AND ((? = 1 AND `PASSWORD` IS NU"& _ 
+                "LL) OR (`PASSWORD` = ?)) AND ((? = 1 AND `NAME` IS NULL) OR (`NAME` = ?)) AND (("& _ 
                 "? = 1 AND `PHONENUM` IS NULL) OR (`PHONENUM` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_STAFF_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_STAFF_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_STAFF_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PASSWORD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PASSWORD", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PHONENUM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Bus_Driver` (`STAFF_ID`, `STAFF_IC`, `NAME`, `PHONENUM`) VALUES (?, "& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Bus_Driver` (`STAFF_ID`, `PASSWORD`, `NAME`, `PHONENUM`) VALUES (?, "& _ 
                 "?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("STAFF_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("STAFF_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PASSWORD", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Bus_Driver` SET `STAFF_ID` = ?, `STAFF_IC` = ?, `NAME` = ?, `PHONENUM` = "& _ 
-                "? WHERE ((`STAFF_ID` = ?) AND ((? = 1 AND `STAFF_IC` IS NULL) OR (`STAFF_IC` = ?"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Bus_Driver` SET `STAFF_ID` = ?, `PASSWORD` = ?, `NAME` = ?, `PHONENUM` = "& _ 
+                "? WHERE ((`STAFF_ID` = ?) AND ((? = 1 AND `PASSWORD` IS NULL) OR (`PASSWORD` = ?"& _ 
                 ")) AND ((? = 1 AND `NAME` IS NULL) OR (`NAME` = ?)) AND ((? = 1 AND `PHONENUM` I"& _ 
                 "S NULL) OR (`PHONENUM` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("STAFF_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("STAFF_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PASSWORD", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_STAFF_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_STAFF_IC", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_STAFF_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "STAFF_IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PASSWORD", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PASSWORD", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PHONENUM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -1992,7 +2558,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.Database_BUS_CSC301ConnectionString
+            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.DATABASE_BUS_STATION__CSC_301ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2001,7 +2567,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT STAFF_ID, STAFF_IC, NAME, PHONENUM FROM Bus_Driver"
+            Me._commandCollection(0).CommandText = "SELECT STAFF_ID, [PASSWORD], NAME, PHONENUM FROM Bus_Driver"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2009,7 +2575,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Database_BUS_CSC301DataSet.Bus_DriverDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.Bus_DriverDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2022,9 +2588,9 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Database_BUS_CSC301DataSet.Bus_DriverDataTable
+        Public Overloads Overridable Function GetData() As DATABASE_BUS_STATION__CSC_301DataSet.Bus_DriverDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Database_BUS_CSC301DataSet.Bus_DriverDataTable = New Database_BUS_CSC301DataSet.Bus_DriverDataTable()
+            Dim dataTable As DATABASE_BUS_STATION__CSC_301DataSet.Bus_DriverDataTable = New DATABASE_BUS_STATION__CSC_301DataSet.Bus_DriverDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2032,14 +2598,14 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Database_BUS_CSC301DataSet.Bus_DriverDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.Bus_DriverDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Database_BUS_CSC301DataSet) As Integer
+        Public Overloads Overridable Function Update(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet) As Integer
             Return Me.Adapter.Update(dataSet, "Bus_Driver")
         End Function
         
@@ -2061,11 +2627,11 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_STAFF_ID As Integer, ByVal Original_STAFF_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_STAFF_ID As Integer, ByVal Original_PASSWORD As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_STAFF_ID,Integer)
-            If (Original_STAFF_IC.HasValue = true) Then
+            If (Original_PASSWORD.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_STAFF_IC.Value,Double)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_PASSWORD.Value,Double)
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
@@ -2103,10 +2669,10 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal STAFF_ID As Integer, ByVal STAFF_IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal STAFF_ID As Integer, ByVal PASSWORD As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(STAFF_ID,Integer)
-            If (STAFF_IC.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(STAFF_IC.Value,Double)
+            If (PASSWORD.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(PASSWORD.Value,Double)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -2139,10 +2705,10 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal STAFF_ID As Integer, ByVal STAFF_IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal Original_STAFF_ID As Integer, ByVal Original_STAFF_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
+        Public Overloads Overridable Function Update(ByVal STAFF_ID As Integer, ByVal PASSWORD As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal Original_STAFF_ID As Integer, ByVal Original_PASSWORD As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(STAFF_ID,Integer)
-            If (STAFF_IC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(STAFF_IC.Value,Double)
+            If (PASSWORD.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PASSWORD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -2157,9 +2723,9 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(PHONENUM,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_STAFF_ID,Integer)
-            If (Original_STAFF_IC.HasValue = true) Then
+            If (Original_PASSWORD.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_STAFF_IC.Value,Double)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_PASSWORD.Value,Double)
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
@@ -2197,8 +2763,410 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal STAFF_IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal Original_STAFF_ID As Integer, ByVal Original_STAFF_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
-            Return Me.Update(Original_STAFF_ID, STAFF_IC, NAME, PHONENUM, Original_STAFF_ID, Original_STAFF_IC, Original_NAME, Original_PHONENUM)
+        Public Overloads Overridable Function Update(ByVal PASSWORD As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal Original_STAFF_ID As Integer, ByVal Original_PASSWORD As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String) As Integer
+            Return Me.Update(Original_STAFF_ID, PASSWORD, NAME, PHONENUM, Original_STAFF_ID, Original_PASSWORD, Original_NAME, Original_PHONENUM)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class CARD_DETAILSTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "CARD_DETAILS"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("EMAIL", "EMAIL")
+            tableMapping.ColumnMappings.Add("CUST_NAME", "CUST_NAME")
+            tableMapping.ColumnMappings.Add("card_number", "card_number")
+            tableMapping.ColumnMappings.Add("expiry_date", "expiry_date")
+            tableMapping.ColumnMappings.Add("cvv_cvc", "cvv_cvc")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `CARD_DETAILS` WHERE ((`ID` = ?) AND ((? = 1 AND `EMAIL` IS NULL) OR "& _ 
+                "(`EMAIL` = ?)) AND ((? = 1 AND `CUST_NAME` IS NULL) OR (`CUST_NAME` = ?)) AND (("& _ 
+                "? = 1 AND `cvv_cvc` IS NULL) OR (`cvv_cvc` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CUST_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `CARD_DETAILS` (`EMAIL`, `CUST_NAME`, `card_number`, `expiry_date`, `"& _ 
+                "cvv_cvc`) VALUES (?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("card_number", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "card_number", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("expiry_date", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "expiry_date", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `CARD_DETAILS` SET `EMAIL` = ?, `CUST_NAME` = ?, `card_number` = ?, `expir"& _ 
+                "y_date` = ?, `cvv_cvc` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `EMAIL` IS NULL) OR"& _ 
+                " (`EMAIL` = ?)) AND ((? = 1 AND `CUST_NAME` IS NULL) OR (`CUST_NAME` = ?)) AND ("& _ 
+                "(? = 1 AND `cvv_cvc` IS NULL) OR (`cvv_cvc` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("card_number", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "card_number", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("expiry_date", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "expiry_date", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CUST_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_cvv_cvc", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cvv_cvc", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
+            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.DATABASE_BUS_STATION__CSC_301ConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID, EMAIL, CUST_NAME, card_number, expiry_date, cvv_cvc FROM CARD_DETAILS"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.CARD_DETAILSDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As DATABASE_BUS_STATION__CSC_301DataSet.CARD_DETAILSDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As DATABASE_BUS_STATION__CSC_301DataSet.CARD_DETAILSDataTable = New DATABASE_BUS_STATION__CSC_301DataSet.CARD_DETAILSDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.CARD_DETAILSDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "CARD_DETAILS")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_EMAIL As String, ByVal Original_CUST_NAME As String, ByVal Original_cvv_cvc As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            If (Original_EMAIL Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_EMAIL,String)
+            End If
+            If (Original_CUST_NAME Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CUST_NAME,String)
+            End If
+            If (Original_cvv_cvc.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_cvv_cvc.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal EMAIL As String, ByVal CUST_NAME As String, ByVal card_number As String, ByVal expiry_date As String, ByVal cvv_cvc As Global.System.Nullable(Of Integer)) As Integer
+            If (EMAIL Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(EMAIL,String)
+            End If
+            If (CUST_NAME Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CUST_NAME,String)
+            End If
+            If (card_number Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(card_number,String)
+            End If
+            If (expiry_date Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(expiry_date,String)
+            End If
+            If (cvv_cvc.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(cvv_cvc.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal EMAIL As String, ByVal CUST_NAME As String, ByVal card_number As String, ByVal expiry_date As String, ByVal cvv_cvc As Global.System.Nullable(Of Integer), ByVal Original_ID As Integer, ByVal Original_EMAIL As String, ByVal Original_CUST_NAME As String, ByVal Original_cvv_cvc As Global.System.Nullable(Of Integer)) As Integer
+            If (EMAIL Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(EMAIL,String)
+            End If
+            If (CUST_NAME Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CUST_NAME,String)
+            End If
+            If (card_number Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(card_number,String)
+            End If
+            If (expiry_date Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(expiry_date,String)
+            End If
+            If (cvv_cvc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(cvv_cvc.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
+            If (Original_EMAIL Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_EMAIL,String)
+            End If
+            If (Original_CUST_NAME Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_CUST_NAME,String)
+            End If
+            If (Original_cvv_cvc.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_cvv_cvc.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
         End Function
     End Class
     
@@ -2330,21 +3298,21 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "customer"
             tableMapping.ColumnMappings.Add("CUST_IC", "CUST_IC")
-            tableMapping.ColumnMappings.Add("NAME", "NAME")
+            tableMapping.ColumnMappings.Add("CUST_NAME", "CUST_NAME")
             tableMapping.ColumnMappings.Add("PHONENUM", "PHONENUM")
             tableMapping.ColumnMappings.Add("EMAIL", "EMAIL")
             tableMapping.ColumnMappings.Add("PASSWORD", "PASSWORD")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `customer` WHERE ((`CUST_IC` = ?) AND ((? = 1 AND `NAME` IS NULL) OR "& _ 
-                "(`NAME` = ?)) AND ((? = 1 AND `PHONENUM` IS NULL) OR (`PHONENUM` = ?)) AND ((? ="& _ 
-                " 1 AND `EMAIL` IS NULL) OR (`EMAIL` = ?)) AND ((? = 1 AND `PASSWORD` IS NULL) OR"& _ 
-                " (`PASSWORD` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `customer` WHERE ((`CUST_IC` = ?) AND ((? = 1 AND `CUST_NAME` IS NULL"& _ 
+                ") OR (`CUST_NAME` = ?)) AND ((? = 1 AND `PHONENUM` IS NULL) OR (`PHONENUM` = ?))"& _ 
+                " AND ((? = 1 AND `EMAIL` IS NULL) OR (`EMAIL` = ?)) AND ((? = 1 AND `PASSWORD` I"& _ 
+                "S NULL) OR (`PASSWORD` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CUST_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PHONENUM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2353,30 +3321,30 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `customer` (`CUST_IC`, `NAME`, `PHONENUM`, `EMAIL`, `PASSWORD`) VALUE"& _ 
-                "S (?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `customer` (`CUST_IC`, `CUST_NAME`, `PHONENUM`, `EMAIL`, `PASSWORD`) "& _ 
+                "VALUES (?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `customer` SET `CUST_IC` = ?, `NAME` = ?, `PHONENUM` = ?, `EMAIL` = ?, `PA"& _ 
-                "SSWORD` = ? WHERE ((`CUST_IC` = ?) AND ((? = 1 AND `NAME` IS NULL) OR (`NAME` = "& _ 
-                "?)) AND ((? = 1 AND `PHONENUM` IS NULL) OR (`PHONENUM` = ?)) AND ((? = 1 AND `EM"& _ 
-                "AIL` IS NULL) OR (`EMAIL` = ?)) AND ((? = 1 AND `PASSWORD` IS NULL) OR (`PASSWOR"& _ 
-                "D` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `customer` SET `CUST_IC` = ?, `CUST_NAME` = ?, `PHONENUM` = ?, `EMAIL` = ?"& _ 
+                ", `PASSWORD` = ? WHERE ((`CUST_IC` = ?) AND ((? = 1 AND `CUST_NAME` IS NULL) OR "& _ 
+                "(`CUST_NAME` = ?)) AND ((? = 1 AND `PHONENUM` IS NULL) OR (`PHONENUM` = ?)) AND "& _ 
+                "((? = 1 AND `EMAIL` IS NULL) OR (`EMAIL` = ?)) AND ((? = 1 AND `PASSWORD` IS NUL"& _ 
+                "L) OR (`PASSWORD` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_IC", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("EMAIL", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("PASSWORD", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PASSWORD", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_IC", Global.System.Data.OleDb.OleDbType.[Double], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_IC", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_CUST_NAME", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_CUST_NAME", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "CUST_NAME", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_PHONENUM", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_PHONENUM", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "PHONENUM", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_EMAIL", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "EMAIL", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2389,7 +3357,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.Database_BUS_CSC301ConnectionString
+            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.DATABASE_BUS_STATION__CSC_301ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2398,7 +3366,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CUST_IC, NAME, PHONENUM, EMAIL, [PASSWORD] FROM customer"
+            Me._commandCollection(0).CommandText = "SELECT CUST_IC, CUST_NAME, PHONENUM, EMAIL, [PASSWORD] FROM customer"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2406,7 +3374,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Database_BUS_CSC301DataSet.customerDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customerDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2419,9 +3387,9 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Database_BUS_CSC301DataSet.customerDataTable
+        Public Overloads Overridable Function GetData() As DATABASE_BUS_STATION__CSC_301DataSet.customerDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Database_BUS_CSC301DataSet.customerDataTable = New Database_BUS_CSC301DataSet.customerDataTable()
+            Dim dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customerDataTable = New DATABASE_BUS_STATION__CSC_301DataSet.customerDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2429,14 +3397,14 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Database_BUS_CSC301DataSet.customerDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customerDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Database_BUS_CSC301DataSet) As Integer
+        Public Overloads Overridable Function Update(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet) As Integer
             Return Me.Adapter.Update(dataSet, "customer")
         End Function
         
@@ -2458,18 +3426,14 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CUST_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
-            If (Original_CUST_IC.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CUST_IC.Value,Double)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (Original_NAME Is Nothing) Then
+        Public Overloads Overridable Function Delete(ByVal Original_CUST_IC As Double, ByVal Original_CUST_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CUST_IC,Double)
+            If (Original_CUST_NAME Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_NAME,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_CUST_NAME,String)
             End If
             If (Original_PHONENUM Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
@@ -2511,16 +3475,12 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CUST_IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As Integer
-            If (CUST_IC.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(CUST_IC.Value,Double)
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (NAME Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal CUST_IC As Double, ByVal CUST_NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(CUST_IC,Double)
+            If (CUST_NAME Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(NAME,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(CUST_NAME,String)
             End If
             If (PHONENUM Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
@@ -2556,16 +3516,12 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CUST_IC As Global.System.Nullable(Of Double), ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String, ByVal Original_CUST_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
-            If (CUST_IC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CUST_IC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
-            End If
-            If (NAME Is Nothing) Then
+        Public Overloads Overridable Function Update(ByVal CUST_IC As Double, ByVal CUST_NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String, ByVal Original_CUST_IC As Double, ByVal Original_CUST_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CUST_IC,Double)
+            If (CUST_NAME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(NAME,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(CUST_NAME,String)
             End If
             If (PHONENUM Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
@@ -2582,17 +3538,13 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(PASSWORD,String)
             End If
-            If (Original_CUST_IC.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CUST_IC.Value,Double)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (Original_NAME Is Nothing) Then
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CUST_IC,Double)
+            If (Original_CUST_NAME Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_NAME,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_CUST_NAME,String)
             End If
             If (Original_PHONENUM Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
@@ -2634,8 +3586,8 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String, ByVal Original_CUST_IC As Global.System.Nullable(Of Double), ByVal Original_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
-            Return Me.Update(Original_CUST_IC, NAME, PHONENUM, EMAIL, PASSWORD, Original_CUST_IC, Original_NAME, Original_PHONENUM, Original_EMAIL, Original_PASSWORD)
+        Public Overloads Overridable Function Update(ByVal CUST_NAME As String, ByVal PHONENUM As String, ByVal EMAIL As String, ByVal PASSWORD As String, ByVal Original_CUST_IC As Double, ByVal Original_CUST_NAME As String, ByVal Original_PHONENUM As String, ByVal Original_EMAIL As String, ByVal Original_PASSWORD As String) As Integer
+            Return Me.Update(Original_CUST_IC, CUST_NAME, PHONENUM, EMAIL, PASSWORD, Original_CUST_IC, Original_CUST_NAME, Original_PHONENUM, Original_EMAIL, Original_PASSWORD)
         End Function
     End Class
     
@@ -2831,7 +3783,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.Database_BUS_CSC301ConnectionString
+            Me._connection.ConnectionString = Global.CS301_GROUP.My.MySettings.Default.DATABASE_BUS_STATION__CSC_301ConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2848,7 +3800,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As Database_BUS_CSC301DataSet.customer_orderDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customer_orderDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2861,9 +3813,9 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As Database_BUS_CSC301DataSet.customer_orderDataTable
+        Public Overloads Overridable Function GetData() As DATABASE_BUS_STATION__CSC_301DataSet.customer_orderDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As Database_BUS_CSC301DataSet.customer_orderDataTable = New Database_BUS_CSC301DataSet.customer_orderDataTable()
+            Dim dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customer_orderDataTable = New DATABASE_BUS_STATION__CSC_301DataSet.customer_orderDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2871,14 +3823,14 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As Database_BUS_CSC301DataSet.customer_orderDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DATABASE_BUS_STATION__CSC_301DataSet.customer_orderDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As Database_BUS_CSC301DataSet) As Integer
+        Public Overloads Overridable Function Update(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet) As Integer
             Return Me.Adapter.Update(dataSet, "customer_order")
         End Function
         
@@ -3094,6 +4046,8 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         
         Private _bus_DriverTableAdapter As Bus_DriverTableAdapter
         
+        Private _cARD_DETAILSTableAdapter As CARD_DETAILSTableAdapter
+        
         Private _customerTableAdapter As customerTableAdapter
         
         Private _customer_orderTableAdapter As customer_orderTableAdapter
@@ -3124,6 +4078,20 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             End Get
             Set
                 Me._bus_DriverTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property CARD_DETAILSTableAdapter() As CARD_DETAILSTableAdapter
+            Get
+                Return Me._cARD_DETAILSTableAdapter
+            End Get
+            Set
+                Me._cARD_DETAILSTableAdapter = value
             End Set
         End Property
         
@@ -3178,6 +4146,10 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                             AndAlso (Not (Me._bus_DriverTableAdapter.Connection) Is Nothing)) Then
                     Return Me._bus_DriverTableAdapter.Connection
                 End If
+                If ((Not (Me._cARD_DETAILSTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._cARD_DETAILSTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._cARD_DETAILSTableAdapter.Connection
+                End If
                 If ((Not (Me._customerTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._customerTableAdapter.Connection) Is Nothing)) Then
                     Return Me._customerTableAdapter.Connection
@@ -3202,6 +4174,9 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 If (Not (Me._bus_DriverTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
@@ -3217,7 +4192,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As Database_BUS_CSC301DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._bus_DriverTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Bus_Driver.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
@@ -3225,6 +4200,15 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._bus_DriverTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.CARD_DETAILS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._cARD_DETAILSTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -3254,13 +4238,21 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As Database_BUS_CSC301DataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._bus_DriverTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Bus_Driver.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._bus_DriverTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.CARD_DETAILS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._cARD_DETAILSTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -3288,7 +4280,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As Database_BUS_CSC301DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             If (Not (Me._customer_orderTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.customer_order.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
@@ -3303,6 +4295,14 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._customerTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.CARD_DETAILS.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._cARD_DETAILSTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -3348,7 +4348,7 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As Database_BUS_CSC301DataSet) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As DATABASE_BUS_STATION__CSC_301DataSet) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If
@@ -3357,6 +4357,11 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
             End If
             If ((Not (Me._bus_DriverTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._bus_DriverTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
+            If ((Not (Me._cARD_DETAILSTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._cARD_DETAILSTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -3409,6 +4414,15 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                     If Me._bus_DriverTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._bus_DriverTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._bus_DriverTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._cARD_DETAILSTableAdapter, Me._cARD_DETAILSTableAdapter.Connection)
+                    Me._cARD_DETAILSTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._cARD_DETAILSTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._cARD_DETAILSTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._cARD_DETAILSTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._cARD_DETAILSTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
@@ -3492,6 +4506,10 @@ Namespace Database_BUS_CSC301DataSetTableAdapters
                 If (Not (Me._bus_DriverTableAdapter) Is Nothing) Then
                     Me._bus_DriverTableAdapter.Connection = CType(revertConnections(Me._bus_DriverTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._bus_DriverTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._cARD_DETAILSTableAdapter) Is Nothing) Then
+                    Me._cARD_DETAILSTableAdapter.Connection = CType(revertConnections(Me._cARD_DETAILSTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._cARD_DETAILSTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._customerTableAdapter) Is Nothing) Then
                     Me._customerTableAdapter.Connection = CType(revertConnections(Me._customerTableAdapter),Global.System.Data.OleDb.OleDbConnection)

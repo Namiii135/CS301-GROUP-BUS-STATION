@@ -2,14 +2,13 @@
 
 Public Class Customer_Sign_Up
 
-
     Private Sub btnSignupCS_Click(sender As Object, e As EventArgs) Handles btnSignupCS.Click
 
 
 
         ' Connection string to the database
-        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\OneDrive\ドキュメント\Database BUS CSC301.accdb;"
-        Dim query As String = "INSERT INTO customer ([Name], [PHONENUM], [IC], [EMAIL], [PASSWORD]) 
+        Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301 (1)\DATABASE BUS STATION  CSC 301.accdb"
+        Dim query As String = "INSERT INTO customer ([CUST_NAME], [PHONENUM], [CUST_IC], [EMAIL], [PASSWORD]) 
         VALUES (@Name, @PhoneNumber, @ICNumber, @Email, @Password);"
 
         ' Validate user input
@@ -45,6 +44,8 @@ Public Class Customer_Sign_Up
                     ' Check if the insertion was successful
                     If rowsAffected > 0 Then
                         MessageBox.Show("Sign-up successful! You can now log in.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Customer.Show()
+                        Me.Hide()
                     Else
                         MessageBox.Show("Sign-up failed. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If

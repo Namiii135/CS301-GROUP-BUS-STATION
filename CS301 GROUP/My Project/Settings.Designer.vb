@@ -64,6 +64,28 @@ Namespace My
                 Return CType(Me("Database_BUS_CSC301ConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""|DataDirectory|\DATABASE BUS STATI"& _ 
+            "ON CSC301.accdb""")>  _
+        Public ReadOnly Property DATABASE_BUS_STATION_CSC301ConnectionString() As String
+            Get
+                Return CType(Me("DATABASE_BUS_STATION_CSC301ConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=""|DataDirectory|\DATABASE BUS STATI"& _ 
+            "ON  CSC 301.accdb""")>  _
+        Public ReadOnly Property DATABASE_BUS_STATION__CSC_301ConnectionString() As String
+            Get
+                Return CType(Me("DATABASE_BUS_STATION__CSC_301ConnectionString"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

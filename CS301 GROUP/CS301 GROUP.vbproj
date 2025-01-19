@@ -91,16 +91,10 @@
     <Compile Include="Customer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Database_BUS_CSC301DataSet.Designer.vb">
+    <Compile Include="DATABASE_BUS_STATION__CSC_301DataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Dateform.Designer.vb">
-      <DependentUpon>Dateform.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dateform.vb">
-      <SubType>Form</SubType>
+      <DependentUpon>DATABASE_BUS_STATION__CSC_301DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Details_Driver.Designer.vb">
       <DependentUpon>Details_Driver.vb</DependentUpon>
@@ -177,9 +171,6 @@
     <EmbeddedResource Include="Customer_Sign_Up.resx">
       <DependentUpon>Customer_Sign_Up.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dateform.resx">
-      <DependentUpon>Dateform.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Details_Driver.resx">
       <DependentUpon>Details_Driver.vb</DependentUpon>
     </EmbeddedResource>
@@ -212,16 +203,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Database_BUS_CSC301DataSet.xsc">
-      <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
+    <None Include="DATABASE_BUS_STATION__CSC_301DataSet.xsc">
+      <DependentUpon>DATABASE_BUS_STATION__CSC_301DataSet.xsd</DependentUpon>
     </None>
-    <None Include="Database_BUS_CSC301DataSet.xsd">
+    <None Include="DATABASE_BUS_STATION__CSC_301DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Database_BUS_CSC301DataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>DATABASE_BUS_STATION__CSC_301DataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Database_BUS_CSC301DataSet.xss">
-      <DependentUpon>Database_BUS_CSC301DataSet.xsd</DependentUpon>
+    <None Include="DATABASE_BUS_STATION__CSC_301DataSet.xss">
+      <DependentUpon>DATABASE_BUS_STATION__CSC_301DataSet.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -235,7 +226,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database BUS CSC301.accdb">
+    <Content Include="DATABASE BUS STATION  CSC 301.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
