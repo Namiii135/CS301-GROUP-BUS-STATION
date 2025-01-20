@@ -22,7 +22,7 @@ Partial Class ticketform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TicketForm))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ticketform))
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.btnReturn = New System.Windows.Forms.Button()
@@ -351,7 +351,7 @@ Partial Class ticketform
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
-        'TicketForm
+        'ticketform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -359,7 +359,7 @@ Partial Class ticketform
         Me.Controls.Add(Me.Panel7)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Name = "TicketForm"
+        Me.Name = "ticketform"
         Me.Text = "Form1"
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()

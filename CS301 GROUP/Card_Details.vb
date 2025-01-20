@@ -58,6 +58,7 @@ Public Class Card_Details
         If AuthenticateUser(card_number, expiry_date, cvv_cvc) Then
             MessageBox.Show("Card details verified successfully!")
             Me.Hide()  ' Hide the current form or proceed to next form
+            printreceipt.Show()
         Else
             MessageBox.Show("Invalid card details. Please check and try again.")
         End If
@@ -68,4 +69,7 @@ Public Class Card_Details
         ' Initialization code if needed
     End Sub
 
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
 End Class
