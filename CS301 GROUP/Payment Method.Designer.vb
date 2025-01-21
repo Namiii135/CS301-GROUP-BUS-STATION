@@ -81,20 +81,20 @@ Partial Class Payment_Method
         'BACKToolStripMenuItem
         '
         Me.BACKToolStripMenuItem.Name = "BACKToolStripMenuItem"
-        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.BACKToolStripMenuItem.Text = "BACK"
         '
         'CANCELToolStripMenuItem
         '
         Me.CANCELToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EXITToolStripMenuItem})
         Me.CANCELToolStripMenuItem.Name = "CANCELToolStripMenuItem"
-        Me.CANCELToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.CANCELToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.CANCELToolStripMenuItem.Text = "CANCEL"
         '
         'EXITToolStripMenuItem
         '
         Me.EXITToolStripMenuItem.Name = "EXITToolStripMenuItem"
-        Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(113, 26)
+        Me.EXITToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.EXITToolStripMenuItem.Text = "EXIT"
         '
         'Payment_Method

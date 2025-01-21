@@ -135,6 +135,9 @@
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        Dim receiptForm As New printreceiptconfirm
+        printreceiptconfirm.Destination = SelectedDestination
+        printreceiptconfirm.BusStation = strBusStation
         Me.Hide()
         SelectBusType.Show()
     End Sub

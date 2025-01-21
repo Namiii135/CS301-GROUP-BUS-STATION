@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class DATEFORM
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,7 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DATEFORM))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.btnReturn = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -38,6 +38,7 @@ Partial Class Form1
         Me.FilleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel4.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -50,6 +51,7 @@ Partial Class Form1
         '
         Me.Panel4.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.Panel4.Controls.Add(Me.Button1)
         Me.Panel4.Controls.Add(Me.btnReturn)
         Me.Panel4.Controls.Add(Me.Panel2)
         Me.Panel4.Controls.Add(Me.btnConfirm)
@@ -68,9 +70,9 @@ Partial Class Form1
         Me.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReturn.Font = New System.Drawing.Font("Segoe Fluent Icons", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReturn.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.btnReturn.Location = New System.Drawing.Point(303, 381)
+        Me.btnReturn.Location = New System.Drawing.Point(302, 372)
         Me.btnReturn.Name = "btnReturn"
-        Me.btnReturn.Size = New System.Drawing.Size(254, 63)
+        Me.btnReturn.Size = New System.Drawing.Size(227, 41)
         Me.btnReturn.TabIndex = 6
         Me.btnReturn.Text = "Return "
         Me.btnReturn.UseVisualStyleBackColor = False
@@ -80,9 +82,9 @@ Partial Class Form1
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(156, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.dtpDate)
-        Me.Panel2.Location = New System.Drawing.Point(-2, 23)
+        Me.Panel2.Location = New System.Drawing.Point(3, 18)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(276, 117)
+        Me.Panel2.Size = New System.Drawing.Size(250, 130)
         Me.Panel2.TabIndex = 10
         '
         'Label2
@@ -99,7 +101,7 @@ Partial Class Form1
         'dtpDate
         '
         Me.dtpDate.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.dtpDate.Location = New System.Drawing.Point(21, 63)
+        Me.dtpDate.Location = New System.Drawing.Point(0, 79)
         Me.dtpDate.Name = "dtpDate"
         Me.dtpDate.Size = New System.Drawing.Size(223, 22)
         Me.dtpDate.TabIndex = 0
@@ -113,11 +115,11 @@ Partial Class Form1
         Me.btnConfirm.Font = New System.Drawing.Font("Segoe Fluent Icons", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConfirm.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnConfirm.Location = New System.Drawing.Point(303, 294)
+        Me.btnConfirm.Location = New System.Drawing.Point(302, 254)
         Me.btnConfirm.Name = "btnConfirm"
-        Me.btnConfirm.Size = New System.Drawing.Size(254, 63)
+        Me.btnConfirm.Size = New System.Drawing.Size(227, 41)
         Me.btnConfirm.TabIndex = 4
-        Me.btnConfirm.Text = "Confirm Selection"
+        Me.btnConfirm.Text = "Select"
         Me.btnConfirm.UseVisualStyleBackColor = False
         '
         'Panel1
@@ -125,7 +127,7 @@ Partial Class Form1
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(103, Byte), Integer), CType(CType(156, Byte), Integer))
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.lstTime)
-        Me.Panel1.Location = New System.Drawing.Point(63, 172)
+        Me.Panel1.Location = New System.Drawing.Point(42, 151)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(159, 293)
         Me.Panel1.TabIndex = 9
@@ -156,9 +158,9 @@ Partial Class Form1
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.lblPreview)
-        Me.GroupBox1.Location = New System.Drawing.Point(338, 68)
+        Me.GroupBox1.Location = New System.Drawing.Point(259, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(279, 171)
+        Me.GroupBox1.Size = New System.Drawing.Size(347, 171)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Order Preview"
@@ -201,13 +203,30 @@ Partial Class Form1
         '
         Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(579, -67)
+        Me.PictureBox1.Location = New System.Drawing.Point(607, -73)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(356, 606)
+        Me.PictureBox1.Size = New System.Drawing.Size(233, 606)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 16
         Me.PictureBox1.TabStop = False
         '
-        'Form1
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe Fluent Icons", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.Button1.Location = New System.Drawing.Point(302, 310)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(227, 41)
+        Me.Button1.TabIndex = 13
+        Me.Button1.Text = "Confirm "
+        Me.Button1.UseVisualStyleBackColor = False
+        '
+        'DATEFORM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -215,7 +234,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Name = "Form1"
+        Me.Name = "DATEFORM"
         Me.Text = "Form1"
         Me.Panel4.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
@@ -233,9 +252,6 @@ Partial Class Form1
 
     Friend WithEvents Panel4 As Panel
     Friend WithEvents btnReturn As Button
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label2 As Label
-    Friend WithEvents dtpDate As DateTimePicker
     Friend WithEvents btnConfirm As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label1 As Label
@@ -246,4 +262,8 @@ Partial Class Form1
     Friend WithEvents FilleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label2 As Label
+    Friend WithEvents dtpDate As DateTimePicker
+    Friend WithEvents Button1 As Button
 End Class

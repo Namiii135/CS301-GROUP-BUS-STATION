@@ -60,5 +60,18 @@ Public Class Customer_Sign_Up
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
 
     End Sub
+
+    Private Sub MenuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MenuToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub BACKToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BACKToolStripMenuItem.Click
+        Customer.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub EXITToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EXITToolStripMenuItem1.Click
+        Application.Exit()
+    End Sub
 End Class
 

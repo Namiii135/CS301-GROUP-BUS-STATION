@@ -125,19 +125,19 @@ Partial Class Customer_Sign_Up
         '
         Me.CANCELToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EXITToolStripMenuItem1})
         Me.CANCELToolStripMenuItem.Name = "CANCELToolStripMenuItem"
-        Me.CANCELToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.CANCELToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.CANCELToolStripMenuItem.Text = "CANCEL"
         '
         'EXITToolStripMenuItem1
         '
         Me.EXITToolStripMenuItem1.Name = "EXITToolStripMenuItem1"
-        Me.EXITToolStripMenuItem1.Size = New System.Drawing.Size(113, 26)
+        Me.EXITToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
         Me.EXITToolStripMenuItem1.Text = "EXIT"
         '
         'BACKToolStripMenuItem
         '
         Me.BACKToolStripMenuItem.Name = "BACKToolStripMenuItem"
-        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(138, 26)
+        Me.BACKToolStripMenuItem.Size = New System.Drawing.Size(216, 26)
         Me.BACKToolStripMenuItem.Text = "BACK"
         '
         'MenuToolStripMenuItem

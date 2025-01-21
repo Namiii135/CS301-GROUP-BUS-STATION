@@ -102,10 +102,16 @@
     <Compile Include="Details_Driver.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="DATEFORM.Designer.vb">
+      <DependentUpon>DATEFORM.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="DATEFORM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printreceiptconfirm.Designer.vb">
+      <DependentUpon>printreceiptconfirm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="printreceiptconfirm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ticketform.Designer.vb">
@@ -180,8 +186,11 @@
     <EmbeddedResource Include="Details_Driver.resx">
       <DependentUpon>Details_Driver.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="DATEFORM.resx">
+      <DependentUpon>DATEFORM.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="printreceiptconfirm.resx">
+      <DependentUpon>printreceiptconfirm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ticketform.resx">
       <DependentUpon>ticketform.vb</DependentUpon>

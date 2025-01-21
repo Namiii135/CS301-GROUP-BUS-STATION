@@ -4,7 +4,7 @@ Public Class Details_Driver
     ' Subroutine to load passengers for the given driver ID
     Private Sub LoadPassengers(driverID As String)
         Dim connectionString As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\toxic\Downloads\INPUT DATA CSC301 (1)\DATABASE BUS STATION  CSC 301.accdb;"
-        Dim query As String = "SELECT c.[CUST.NAME], c.[PHONENUM]
+        Dim query As String = "SELECT c.[CUST_NAME], c.[PHONENUM]
                                FROM ([customer] AS c
                                INNER JOIN [customer_order] AS co ON c.[CUST_IC] = co.[CUST_IC])
                                INNER JOIN [Bus_Driver] AS s ON co.[STAFF_ID] = s.[STAFF_ID]
@@ -25,7 +25,7 @@ Public Class Details_Driver
                     Using reader As OleDbDataReader = command.ExecuteReader()
                         If reader.HasRows Then
                             While reader.Read()
-                                Dim passengerInfo As String = $"Name: {reader("NAME")}, Phone: {reader("PHONENUM")}"
+                                Dim passengerInfo As String = $"Name: {reader("CUST_NAME")}, Phone: {reader("PHONENUM")}"
                                 ListBoxPassengers.Items.Add(passengerInfo)
                             End While
 
@@ -55,11 +55,6 @@ Public Class Details_Driver
 
 
 
-    ' Event handler for "Back" button to return to the login form
-    Private Sub button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Me.Hide()
-        Staff.Show()
-    End Sub
 
     Private Sub ListBoxPassengers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBoxPassengers.SelectedIndexChanged
 

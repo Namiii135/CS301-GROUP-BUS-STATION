@@ -12,6 +12,9 @@
     End Sub
 
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        Dim receiptForm As New printreceiptconfirm
+        printreceiptconfirm.BusType = busType
+        printreceiptconfirm.SeatType = busSeatType
         Me.Hide()
         ticketform.Show()
     End Sub

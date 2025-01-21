@@ -72,6 +72,9 @@ Public Class Customer
         Else
             MessageBox.Show("Invalid email or password.")
         End If
+        Dim receiptForm As New printreceiptconfirm
+        printreceiptconfirm.cust_email = email
+
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
